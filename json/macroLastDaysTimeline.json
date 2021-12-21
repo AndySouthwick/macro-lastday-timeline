@@ -170,6 +170,21 @@
               "__typename": "Source",
               "source": "Isaiah 52",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/ot/isa/52?lang=eng"
+            },
+            {
+              "__typename": "Source",
+              "source": "That parable of the Nbleman and the Olive Tree",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/101?lang=eng&id=p43-p62#p43"
+            },
+            {
+              "__typename": "Source",
+              "source": "The servant Joseph",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/103?lang=eng&id=p21#p21"
+            },
+            {
+              "__typename": "Source",
+              "source": "The servant",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/105?lang=eng&id=p16#p16"
             }
           ],
           "imageSrc": ""
