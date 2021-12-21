@@ -1,6 +1,6 @@
 <script>
-import Swiper from "swiper"
-import MacroLastDayTimeLine from "./../../json/macroLastDaysTimeline.json"
+import Swiper from "swiper";
+import MacroLastDayTimeLine from "./../../json/macroLastDaysTimeline.json";
 export default {
   name: "MacroLastDaysTimeline",
   props: {
@@ -9,24 +9,24 @@ export default {
   data() {
     return {
       macroLastDayTimeline: MacroLastDayTimeLine,
-      selectedData: ""
+      selectedData: "",
     };
   },
-  methods:{
-    selectItem(data){
-      this.selectedData = data
-    }
+  methods: {
+    selectItem(data) {
+      this.selectedData = data;
+    },
   },
-   mounted() {
-     new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
+  mounted() {
+    new Swiper(".swiper-container", {
+      pagination: ".swiper-pagination",
       slidesPerView: 1,
       grabCursor: true,
-      paginationClickable: true, 
-      nextButton: '.next-slide',
-      prevButton: '.prev-slide',
-    });    
-  }
+      paginationClickable: true,
+      nextButton: ".next-slide",
+      prevButton: ".prev-slide",
+    });
+  },
 };
 </script>
 <template>
@@ -35,31 +35,52 @@ export default {
       <div class="col-md-12">
         <div class="swiper-container">
           <div class="swiper-wrapper timeline">
-
-            <div class="swiper-slide" v-for="(item, index) in macroLastDayTimeline.macroTimeLine" :key="index">
+            <div
+              class="swiper-slide"
+              v-for="(item, index) in macroLastDayTimeline.macroTimeLine"
+              :key="index"
+            >
               <div class="timestamp">
-                <span class="date">{{ macroLastDayTimeline.timeLineItems[item].title }}</span>
+                <span class="date">{{
+                  macroLastDayTimeline.timeLineItems[item].title
+                }}</span>
               </div>
               <div class="status">
-                <span @click="selectItem(macroLastDayTimeline.timeLineItems[item])"></span>
+                <span
+                  @click="selectItem(macroLastDayTimeline.timeLineItems[item])"
+                ></span>
               </div>
             </div>
           </div>
           <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
         </div>
-      <h2>{{selectedData.title}}</h2>
-      <p>{{selectedData.description}}</p>
-      <div v-for="(event, index) in selectedData.events" :key="index">
-          <h3>{{event.eventName}}</h3>
+        <h2>{{ selectedData.title }}</h2>
+        <p>{{ selectedData.description }}</p>
+        <div v-for="(event, index) in selectedData.events" :key="index">
+          <h3>{{ event.eventName }}</h3>
           <ul>
-            <li v-for="(sourceItem, sourceidx) in event.sources" :key="sourceidx"><a  :href="sourceItem.ref">{{sourceItem.source}}</a></li>
+            <li
+              v-for="(sourceItem, sourceidx) in event.sources"
+              :key="sourceidx"
+            >
+              <a :href="sourceItem.ref" v-if="sourceItem.ref">{{
+                sourceItem.source
+              }}</a>
+            </li>
+            <li v-for="(event, index) in event.events" :key="index">
+              {{ event.eventName }}
+              <ul>
+                <li v-for="(source, index) in event.sources" :key="index">
+                  <a :href="source.ref">{{source.source}}</a>
+                </li>
+              </ul>
+            </li>
           </ul>
-      </div>
+        </div>
       </div>
     </div>
-    <div>
-    </div>
+    <div></div>
   </div>
 </template>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -71,11 +92,11 @@ body {
 #app {
   padding: 50px 0;
 }
-a{
+a {
   color: #fff;
 }
 ul li {
-    text-align: left;
+  text-align: left;
 }
 .timeline {
   margin: 50px 0;
@@ -94,7 +115,7 @@ ul li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: 100; 
+  font-weight: 100;
 }
 .status {
   padding: 0px 40px;
@@ -102,15 +123,15 @@ ul li {
   justify-content: center;
   border-top: 4px solid #3e70ff;
   position: relative;
-  transition: all 200ms ease-in ;
+  transition: all 200ms ease-in;
 }
-  
+
 .status span {
   font-weight: 600;
   padding-top: 20px;
 }
 .status span:before {
-  content: '';
+  content: "";
   width: 25px;
   height: 25px;
   background-color: #e8eeff;
@@ -125,7 +146,7 @@ ul li {
   text-align: right;
 }
 .row {
-    text-align: left;
+  text-align: left;
 }
 .swiper-container {
   width: 100%;
