@@ -1,5 +1,5 @@
 <script>
-import Swiper from "swiper";
+import { Swiper } from "swiper";
 import MacroLastDayTimeLine from "./../../json/macroLastDaysTimeline.json";
 export default {
   name: "MacroLastDaysTimeline",
@@ -10,21 +10,35 @@ export default {
     return {
       macroLastDayTimeline: MacroLastDayTimeLine,
       selectedData: "",
+      showSectionData: null,
     };
   },
   methods: {
     selectItem(data) {
+      console.log(data)
       this.selectedData = data;
+    },
+    openSection(index) {
+      this.showSectionData = index;
     },
   },
   mounted() {
-    new Swiper(".swiper-container", {
+    const swiper = new Swiper(".swiper-container", {
       pagination: ".swiper-pagination",
       slidesPerView: 1,
       grabCursor: true,
       paginationClickable: true,
       nextButton: ".next-slide",
       prevButton: ".prev-slide",
+        on: {
+    init:(data) => {
+      console.log('swiper initialized');
+      this.selectedData = MacroLastDayTimeLine.timeLineItems[MacroLastDayTimeLine.macroTimeLine[data.activeIndex]]
+    },
+  },
+    });
+    swiper.on("slideChange", (data) => {
+      this.selectedData = MacroLastDayTimeLine.timeLineItems[MacroLastDayTimeLine.macroTimeLine[data.activeIndex]]
     });
   },
 };
@@ -55,28 +69,41 @@ export default {
           <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
         </div>
-        <h2>{{ selectedData.title }}</h2>
-        <p>{{ selectedData.description }}</p>
-        <div v-for="(event, index) in selectedData.events" :key="index">
-          <h3>{{ event.eventName }}</h3>
-          <ul>
-            <li
-              v-for="(sourceItem, sourceidx) in event.sources"
-              :key="sourceidx"
-            >
-              <a :href="sourceItem.ref" v-if="sourceItem.ref">{{
-                sourceItem.source
-              }}</a>
-            </li>
-            <li v-for="(event, index) in event.events" :key="index">
+        <div class="Conent">
+          <h2>{{ selectedData.title }}</h2>
+          <p>{{ selectedData.description }}</p>
+          <div v-for="(event, index) in selectedData.events" :key="index">
+            <h3 @click="openSection(index)" class="Selectable">
               {{ event.eventName }}
-              <ul>
-                <li v-for="(source, index) in event.sources" :key="index">
-                  <a :href="source.ref">{{source.source}}</a>
+            </h3>
+            <ul>
+              <div v-if="showSectionData == index">
+                <li
+                  v-for="(sourceItem, sourceidx) in event.sources"
+                  :key="sourceidx"
+                >
+                  <a
+                    :href="sourceItem.ref"
+                    v-if="sourceItem.ref"
+                    target="_blank"
+                    >{{ sourceItem.source }}</a
+                  >
                 </li>
-              </ul>
-            </li>
-          </ul>
+              </div>
+              <div v-if="showSectionData === index">
+                <li v-for="(event, index) in event.events" :key="index">
+                  <strong>{{ event.eventName }}</strong>
+                  <ul>
+                    <li v-for="(source, index) in event.sources" :key="index">
+                      <a :href="source.ref" target="_blank">{{
+                        source.source
+                      }}</a>
+                    </li>
+                  </ul>
+                </li>
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -85,6 +112,17 @@ export default {
 </template>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+ç .Selectable {
+  cursor: pointer;
+}
+.Conent {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Conent h2 {
+  text-align: center;
+}
 body {
   background: #353535;
   color: #fff;
