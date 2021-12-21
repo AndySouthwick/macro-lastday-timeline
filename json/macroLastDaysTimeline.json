@@ -287,6 +287,11 @@
               "__typename": "Source",
               "source": "10th Article of Faith, lieteral gathering and restoration",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/pgp/a-of-f/1?lang=eng&id=p10#p10"
+            },
+            {
+              "__typename": "Source",
+              "source": "Great are the blessings unto the family of isreal, They shall return from the North and be crowned",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/133?lang=eng&id=p26-p33#p26"
             }
           ]
         },
@@ -298,7 +303,13 @@
         {
           "__typename": "Event",
           "eventName": "Begin to Inherit The Desolate Cities",
-          "sources": []
+          "sources": [
+            {
+              "__typename": "Source",
+              "source": "make the desolate cities to be inhabited.",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/ot/isa/54?lang=eng&id=p3#p3"
+            }
+          ]
         }
       ]
     },
