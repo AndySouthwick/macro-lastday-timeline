@@ -1,7 +1,7 @@
 {
   "macroTimeLine": [
     "Travail",
-    "AdamOndhiAhmen",
+    "AdamOndiAhmen",
     "NewJerusalem",
     "MountOfOlives",
     "GreatAndDreadfulDay"
@@ -140,12 +140,12 @@
           "sources": [
             {
               "__typename": "Source",
-              "source": "Ethere 3:19 Faith as the brother of Jared",
+              "source": "Ether 3:19 Faith as the brother of Jared",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/3?lang=eng&id=p19#p19"
             },
             {
               "__typename": "Source",
-              "source": "Ethere 4:15 Rend The Veil, receive the hidden things",
+              "source": "Ether 4:15 Rend The Veil, receive the hidden things",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/4?lang=eng&id=p15#p15"
             }
           ],
@@ -191,9 +191,9 @@
         }
       ]
     },
-    "AdamOndhiAhmen": {
-      "__typename": "AdamOndhiAhmen",
-      "title": "Adam Ondhi Ahmen",
+    "AdamOndiAhmen": {
+      "__typename": "AdamOndiAhmen",
+      "title": "Adam Ondi Ahmen",
       "description": "Multiple meetings, Christ comes to his people to prepare them for the building of the New Jerusalem, the keys are returned",
       "events": [
         {
@@ -269,7 +269,7 @@
           "sources": [
             {
               "__typename": "Source",
-              "source": "Jeramiah: 16:14-15 No more said, tribes brought out of Egypt",
+              "source": "Jeremiah: 16:14-15 No more said, tribes brought out of Egypt",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/ot/jer/16?lang=eng&id=p14-p15#p14"
             }
           ]
