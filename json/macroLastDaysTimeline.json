@@ -84,7 +84,7 @@
                 }, 
                 {
                   "__typename": "Source",
-                  "source": "April 2021 Conference (Covid is th desolating sickness)",
+                  "source": "April 2021 Conference (Covid is the desolating sickness)",
                   "ref": "https://www.churchofjesuschrist.org/study/general-conference/2021/04/36nelson?lang=eng&id=p9#p9"
                 }
               ]
@@ -106,7 +106,13 @@
               ]
             }
           ],
-          "sources": [],
+          "sources": [
+            {
+              "__typename": "Source",
+              "source": "Forshadowing, tribulation makes the 144,000",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/nt/rev/7?lang=eng&id=p14#p14"
+            }
+          ],
           "imageSrc": ""
         },
 
@@ -224,6 +230,11 @@
                   "__typename": "Source",
                   "source": "Isaiah 10:8 Are not all my princes kings? look at all my puppets!",
                   "ref": "https://www.churchofjesuschrist.org/study/scriptures/ot/isa/10?lang=eng&id=p8-p10#p8"
+                },
+                {
+                  "__typename": "Source",
+                  "srouce": "The enemy of the nobleman, the destroyer",
+                  "ref": "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/101?lang=eng&id=p51-p54#p51"
                 }
               ]
             },
@@ -240,7 +251,7 @@
             },
             {
               "__typename": "Event",
-              "eventName": "Caled To The Courts Of Washington",
+              "eventName": "The keys called To The Courts Of Washington",
               "sources": []
             }
           ],
@@ -271,6 +282,11 @@
               "__typename": "Source",
               "source": "Jeremiah: 16:14-15 No more said, tribes brought out of Egypt",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/ot/jer/16?lang=eng&id=p14-p15#p14"
+            },
+            {
+              "__typename": "Source",
+              "source": "10th Article of Faith, lieteral gathering and restoration",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/pgp/a-of-f/1?lang=eng&id=p10#p10"
             }
           ]
         },
