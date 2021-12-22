@@ -219,8 +219,12 @@ ul li {
 }
 .swiper-container {
   width: 100%;
+}
+@media (max-width:400) {
+  .swiper-container {
+  width: 100%;
   overflow: hidden;
-  padding: 0 20px 30px 20px;
+}
 }
 .swiper-slide {
   width: 250px;
