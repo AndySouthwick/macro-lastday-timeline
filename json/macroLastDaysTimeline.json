@@ -339,7 +339,13 @@
         {
           "__typename": "Event",
           "eventName": "Inherit The Desolate Cities",
-          "sources": []
+          "sources": [
+            {
+              "__typename": "Source",
+              "source": "make the desolate cities to be inhabited.",
+              "ref": "https://www.churchofjesuschrist.org/study/scriptures/ot/isa/54?lang=eng&id=p3#p3"
+            }
+          ]
         },
         {
           "__typename": "Event",
