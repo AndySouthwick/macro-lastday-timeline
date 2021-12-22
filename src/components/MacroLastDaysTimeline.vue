@@ -126,9 +126,9 @@ export default {
 h3 {
   font-size: 1.1em;
 }
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   .accordian-pannel {
-    border-top: 1px solid #fff;
+    border-top: 2px solid #fff;
     display: flex;
     justify-content: space-between;
   }
