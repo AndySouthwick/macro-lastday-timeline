@@ -38,7 +38,6 @@
           "eventName": "Saints Fail To Build Zion and Redeem Her",
           "sources": [
             {
-              "id": "1",
               "__typename": "Source",
               "source": "D&C 101 Parable of the Noble Man and the Olive Trees",
               "ref": "https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/101?lang=eng&id=p50#p50"
@@ -115,11 +114,16 @@
           ],
           "imageSrc": ""
         },
-
         {
           "__typename": "Event",
           "eventName": "The Lamanites Blosom As A Rose",
-          "sources": [],
+          "sources": [
+            {
+              "__typename": "Source",
+              "source": "2 Nephi 30:4-6 The gospel taught to the seeed of Lehi",
+              "ref":"https://www.churchofjesuschrist.org/study/scriptures/bofm/2-ne/30.4-6?lang=eng#3"
+            }
+          ],
           "imageSrc": ""
         },
 

@@ -15,7 +15,6 @@ export default {
   },
   methods: {
     selectItem(data) {
-      console.log(data);
       this.selectedData = data;
     },
     openSection(index) {
@@ -79,7 +78,7 @@ export default {
           <h2>{{ selectedData.title }}</h2>
           <p>{{ selectedData.description }}</p>
           <div v-for="(event, index) in selectedData.events" :key="index">
-            <div class="accordian-pannel" @click="openSection(index)">
+            <div class="accordian-pannel" @click="openSection(`${event.eventName}-${index}`)">
               <h3  class="Selectable">
                 {{ event.eventName }}
               </h3>
@@ -87,10 +86,10 @@ export default {
             </div> 
             <ul>
                <transition name="fade">
-              <div v-if="showSectionData == index">
+              <div v-if="showSectionData == `${event.eventName}-${index}`">
                 <li
                   v-for="(sourceItem, sourceidx) in event.sources"
-                  :key="sourceidx"
+                  :key="`${sourceidx}-${sourceItem}`"
                 >
                   <a
                     :href="sourceItem.ref"
@@ -100,11 +99,13 @@ export default {
                   >
                 </li>
               </div>
-              <div v-if="showSectionData === index">
-                <li v-for="(event, index) in event.events" :key="index">
-                  <strong>{{ event.eventName }}</strong>
+                </transition>
+                <transition name="fade">
+              <div v-if="showSectionData === `${event.eventName}-${index}`">
+                <li v-for="(eventinevent, index) in event.events" :key="`${eventinevent}-${index}`">
+                  <strong>{{ eventinevent.eventName }}</strong>
                   <ul>
-                    <li v-for="(source, index) in event.sources" :key="index">
+                    <li v-for="(source, index) in eventinevent.sources" :key="index">
                       <a :href="source.ref" target="_blank">{{
                         source.source
                       }}</a>
@@ -112,7 +113,7 @@ export default {
                   </ul>
                 </li>
               </div>
-              </transition>
+            </transition>
             </ul>   
           </div>
         </div>
@@ -127,7 +128,7 @@ h3 {
   font-size: 1.1em;
 }
   .accordian-pannel {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #a7a6a6bd;
     display: flex;
     justify-content: space-between;
   }
