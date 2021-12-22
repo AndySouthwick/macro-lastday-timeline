@@ -15,7 +15,7 @@ export default {
   },
   methods: {
     selectItem(data) {
-      console.log(data)
+      console.log(data);
       this.selectedData = data;
     },
     openSection(index) {
@@ -30,15 +30,21 @@ export default {
       paginationClickable: true,
       nextButton: ".next-slide",
       prevButton: ".prev-slide",
-        on: {
-    init:(data) => {
-      console.log('swiper initialized');
-      this.selectedData = MacroLastDayTimeLine.timeLineItems[MacroLastDayTimeLine.macroTimeLine[data.activeIndex]]
-    },
-  },
+      on: {
+        init: (data) => {
+          console.log("swiper initialized");
+          this.selectedData =
+            MacroLastDayTimeLine.timeLineItems[
+              MacroLastDayTimeLine.macroTimeLine[data.activeIndex]
+            ];
+        },
+      },
     });
     swiper.on("slideChange", (data) => {
-      this.selectedData = MacroLastDayTimeLine.timeLineItems[MacroLastDayTimeLine.macroTimeLine[data.activeIndex]]
+      this.selectedData =
+        MacroLastDayTimeLine.timeLineItems[
+          MacroLastDayTimeLine.macroTimeLine[data.activeIndex]
+        ];
     });
   },
 };
@@ -73,10 +79,14 @@ export default {
           <h2>{{ selectedData.title }}</h2>
           <p>{{ selectedData.description }}</p>
           <div v-for="(event, index) in selectedData.events" :key="index">
-            <h3 @click="openSection(index)" class="Selectable">
-              {{ event.eventName }}
-            </h3>
+            <div class="accordian-pannel" @click="openSection(index)">
+              <h3  class="Selectable">
+                {{ event.eventName }}
+              </h3>
+              <div class="down-arrow"></div>
+            </div> 
             <ul>
+               <transition name="fade">
               <div v-if="showSectionData == index">
                 <li
                   v-for="(sourceItem, sourceidx) in event.sources"
@@ -102,7 +112,8 @@ export default {
                   </ul>
                 </li>
               </div>
-            </ul>
+              </transition>
+            </ul>   
           </div>
         </div>
       </div>
@@ -112,7 +123,28 @@ export default {
 </template>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-ç .Selectable {
+h3 {
+  font-size: 1.1em;
+}
+@media (max-width: 400px) {
+  .accordian-pannel {
+    border-top: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+  }
+  .accordian-pannel h3 {
+     max-width: 300px
+  }
+  .down-arrow{
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 72 72'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' d='M62 22.48L36.008 49.52 10 22.48'%3E%3C/path%3E%3C/svg%3E");
+    width: 18px;
+    height: 18px;
+    margin-top:20px;
+  }
+}
+
+.Selectable {
   cursor: pointer;
 }
 .Conent {
@@ -202,4 +234,10 @@ ul li {
 .swiper-slide:nth-child(3n) {
   width: 20%;
 }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+} 
 </style>
