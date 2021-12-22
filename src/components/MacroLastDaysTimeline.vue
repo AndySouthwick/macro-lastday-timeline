@@ -74,47 +74,58 @@ export default {
           <!-- Add Pagination -->
           <div class="swiper-pagination"></div>
         </div>
-        <div class="Conent">
-          <h2>{{ selectedData.title }}</h2>
-          <p>{{ selectedData.description }}</p>
-          <div v-for="(event, index) in selectedData.events" :key="index">
-            <div class="accordian-pannel" @click="openSection(`${event.eventName}-${index}`)">
-              <h3  class="Selectable">
-                {{ event.eventName }}
-              </h3>
-              <div class="down-arrow"></div>
-            </div> 
-            <ul>
-               <transition name="fade">
-              <div v-if="showSectionData == `${event.eventName}-${index}`">
-                <li
-                  v-for="(sourceItem, sourceidx) in event.sources"
-                  :key="`${sourceidx}-${sourceItem}`"
-                >
-                  <a
-                    :href="sourceItem.ref"
-                    v-if="sourceItem.ref"
-                    target="_blank"
-                    >{{ sourceItem.source }}</a
-                  >
-                </li>
+        <div class="content-wrapper">
+          <div class="Conent">
+            <h2>{{ selectedData.title }}</h2>
+            <p>{{ selectedData.description }}</p>
+            <div v-for="(event, index) in selectedData.events" :key="index">
+              <div
+                class="accordian-pannel"
+                @click="openSection(`${event.eventName}-${index}`)"
+              >
+                <h3 class="Selectable">
+                  {{ event.eventName }}
+                </h3>
+                <div class="down-arrow"></div>
               </div>
+              <ul>
+                <transition name="fade">
+                  <div v-if="showSectionData == `${event.eventName}-${index}`">
+                    <li
+                      v-for="(sourceItem, sourceidx) in event.sources"
+                      :key="`${sourceidx}-${sourceItem}`"
+                    >
+                      <a
+                        :href="sourceItem.ref"
+                        v-if="sourceItem.ref"
+                        target="_blank"
+                        >{{ sourceItem.source }}</a
+                      >
+                    </li>
+                  </div>
                 </transition>
                 <transition name="fade">
-              <div v-if="showSectionData === `${event.eventName}-${index}`">
-                <li v-for="(eventinevent, index) in event.events" :key="`${eventinevent}-${index}`">
-                  <strong>{{ eventinevent.eventName }}</strong>
-                  <ul>
-                    <li v-for="(source, index) in eventinevent.sources" :key="index">
-                      <a :href="source.ref" target="_blank">{{
-                        source.source
-                      }}</a>
+                  <div v-if="showSectionData === `${event.eventName}-${index}`">
+                    <li
+                      v-for="(eventinevent, index) in event.events"
+                      :key="`${eventinevent}-${index}`"
+                    >
+                      <strong>{{ eventinevent.eventName }}</strong>
+                      <ul>
+                        <li
+                          v-for="(source, index) in eventinevent.sources"
+                          :key="index"
+                        >
+                          <a :href="source.ref" target="_blank">{{
+                            source.source
+                          }}</a>
+                        </li>
+                      </ul>
                     </li>
-                  </ul>
-                </li>
-              </div>
-            </transition>
-            </ul>   
+                  </div>
+                </transition>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -127,22 +138,29 @@ export default {
 h3 {
   font-size: 1.1em;
 }
-  .accordian-pannel {
-    border-top: 2px solid #a7a6a6bd;
-    display: flex;
-    justify-content: space-between;
-  }
-  .accordian-pannel h3 {
-     max-width: 300px
-  }
-  .down-arrow{
-    background-repeat: no-repeat;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 72 72'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' d='M62 22.48L36.008 49.52 10 22.48'%3E%3C/path%3E%3C/svg%3E");
-    width: 18px;
-    height: 18px;
-    margin-top:20px;
-  }
-
+.accordian-pannel {
+  border-top: 2px solid #8d8c8cbd;
+  display: flex;
+  justify-content: space-between;
+}
+.accordian-pannel h3 {
+  max-width: 300px;
+}
+.down-arrow {
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 72 72'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' d='M62 22.48L36.008 49.52 10 22.48'%3E%3C/path%3E%3C/svg%3E");
+  width: 18px;
+  height: 18px;
+  margin-top: 20px;
+}
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-left: 11px;
+}
 .Selectable {
   cursor: pointer;
 }
@@ -219,12 +237,8 @@ ul li {
 }
 .swiper-container {
   width: 100%;
-}
-@media (max-width:400) {
-  .swiper-container {
-  width: 100%;
   overflow: hidden;
-}
+  padding: 0 20px 30px 20px;
 }
 .swiper-slide {
   width: 250px;
@@ -237,10 +251,11 @@ ul li {
 .swiper-slide:nth-child(3n) {
   width: 20%;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-} 
+}
 </style>
