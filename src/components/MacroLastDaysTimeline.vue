@@ -126,7 +126,6 @@ export default {
 h3 {
   font-size: 1.1em;
 }
-@media only screen and (max-width: 400px) {
   .accordian-pannel {
     border-top: 2px solid #fff;
     display: flex;
@@ -142,7 +141,6 @@ h3 {
     height: 18px;
     margin-top:20px;
   }
-}
 
 .Selectable {
   cursor: pointer;
